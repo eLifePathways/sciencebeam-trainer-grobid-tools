@@ -12,12 +12,11 @@ dependencies = [
     "numpy>=2.0.2",
     "regex>=2026.1.15",
     "sciencebeam-alignment",
-    "sciencebeam-utils>=0.1.5",
+    "sciencebeam-utils>=0.1.6",
 ]
 
 [tool.uv.sources]
 sciencebeam-alignment = { git = "https://github.com/eLifePathways/sciencebeam-alignment", branch = "uv-build" }
-sciencebeam-utils = { git = "https://github.com/eLifePathways/sciencebeam-utils", branch = "uv-build" }
 
 [dependency-groups]
 dev = [

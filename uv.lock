@@ -3543,7 +3543,7 @@ requires-dist = [
     { name = "numpy", specifier = ">=2.0.2" },
     { name = "regex", specifier = ">=2026.1.15" },
     { name = "sciencebeam-alignment", git = "https://github.com/eLifePathways/sciencebeam-alignment?branch=uv-build" },
-    { name = "sciencebeam-utils", git = "https://github.com/eLifePathways/sciencebeam-utils?branch=uv-build" },
+    { name = "sciencebeam-utils", specifier = ">=0.1.6" },
 ]
 
 [package.metadata.requires-dev]
@@ -3557,13 +3557,17 @@ dev = [
 
 [[package]]
 name = "sciencebeam-utils"
-version = "0.0.0"
-source = { git = "https://github.com/eLifePathways/sciencebeam-utils?branch=uv-build#993a77b7c8400527ca59c0f19c9cbe40c68293be" }
+version = "0.1.6"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "lxml" },
     { name = "numpy" },
     { name = "six" },
     { name = "tqdm" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ca/d6/c7bb71236c2d3d43580bc65fe36ce49c6a08d4db6725c3a05dcbe5f11f25/sciencebeam_utils-0.1.6.tar.gz", hash = "sha256:1792f3ba83089e378278f40dcb07e377e4bca26d2fb0a5ea9b499c630da76266", size = 22115, upload-time = "2026-03-05T19:25:52.707Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7c/5f/0fcd83a0d5156fbb190140d1405ebc10ae71cc16b5fee2319d9b3d8cc04e/sciencebeam_utils-0.1.6-py3-none-any.whl", hash = "sha256:0cc1f85c814b5ee6cbfab0340c72bd88dc65f3dc8bcc7e3c77539da198728b95", size = 29183, upload-time = "2026-03-05T19:25:51.83Z" },
 ]
 
 [[package]]
