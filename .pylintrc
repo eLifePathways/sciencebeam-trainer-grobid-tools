@@ -2,7 +2,6 @@
 disable=
     missing-docstring,
     too-few-public-methods,
-    no-self-use,
     invalid-name,
     too-many-arguments,
     duplicate-code,
@@ -19,7 +18,6 @@ disable=
     unnecessary-lambda,
     len-as-condition,
     fixme,
-    bad-continuation,
     useless-object-inheritance,
     broad-exception-raised,
     unnecessary-lambda-assignment,
