@@ -8,6 +8,7 @@ disable=
     duplicate-code,
     too-many-locals,
     too-many-instance-attributes,
+    too-many-positional-arguments,
     too-many-statements,
     too-many-branches,
     too-many-public-methods,
@@ -19,7 +20,14 @@ disable=
     len-as-condition,
     fixme,
     bad-continuation,
-    useless-object-inheritance
+    useless-object-inheritance,
+    broad-exception-raised,
+    unnecessary-lambda-assignment,
+    use-sequence-for-iteration,
+    consider-using-f-string,
+    redundant-u-string-prefix,
+    use-dict-literal,
+    use-yield-from
 
 [TYPECHECK]
 ignored-classes=
