@@ -69,7 +69,7 @@ class TargetAnnotation(object):
 
 
 def parse_xml_mapping(xml_mapping_filename):
-    with open(xml_mapping_filename, 'r') as f:
+    with open(xml_mapping_filename, 'r', encoding='utf-8') as f:
         config = ConfigParser()
         if six.PY3:
             config.read_file(f)  # pylint: disable=no-member
