@@ -57,15 +57,15 @@ dev-venv: venv-create dev-install
 
 
 dev-flake8:
-	$(PYTHON) -m flake8 sciencebeam_trainer_grobid_tools tests setup.py
+	$(PYTHON) -m flake8 sciencebeam_trainer_grobid_tools
 
 
 dev-pylint:
-	$(PYTHON) -m pylint sciencebeam_trainer_grobid_tools tests setup.py
+	$(PYTHON) -m pylint sciencebeam_trainer_grobid_tools
 
 
 dev-mypy:
-	$(PYTHON) -m mypy --ignore-missing-imports sciencebeam_trainer_grobid_tools tests setup.py $(ARGS)
+	$(PYTHON) -m mypy --ignore-missing-imports sciencebeam_trainer_grobid_tools tests $(ARGS)
 
 
 dev-lint: dev-flake8 dev-pylint dev-mypy
