@@ -411,42 +411,12 @@ wheels = [
 ]
 
 [[package]]
-name = "backports-csv"
-version = "1.0.7"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/79/0c/d0eaa9380189a292121acab65199ac95b9209b45006ad8aa5266abd36943/backports.csv-1.0.7.tar.gz", hash = "sha256:1277dfff73130b2e106bf3dd347adb3c5f6c4340882289d88f31240da92cbd6d", size = 20836, upload-time = "2019-03-11T03:05:33.248Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/8e/26/a6bd68f13e0f38fbb643d6e497fc3462be83a0b6c4d43425c78bb51a7291/backports.csv-1.0.7-py2.py3-none-any.whl", hash = "sha256:21f6e09bab589e6c1f877edbc40277b65e626262a86e69a70137db714eaac5ce", size = 12876, upload-time = "2019-03-11T03:05:31.956Z" },
-]
-
-[[package]]
 name = "backports-tarfile"
 version = "1.2.0"
 source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/86/72/cd9b395f25e290e633655a100af28cb253e4393396264a98bd5f5951d50f/backports_tarfile-1.2.0.tar.gz", hash = "sha256:d75e02c268746e1b8144c278978b6e98e85de6ad16f8e4b0844a154557eca991", size = 86406, upload-time = "2024-05-28T17:01:54.731Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b9/fa/123043af240e49752f1c4bd24da5053b6bd00cad78c2be53c0d1e8b975bc/backports.tarfile-1.2.0-py3-none-any.whl", hash = "sha256:77e284d754527b01fb1e6fa8a1afe577858ebe4e9dad8919e34c862cb399bc34", size = 30181, upload-time = "2024-05-28T17:01:53.112Z" },
-]
-
-[[package]]
-name = "backports-tempfile"
-version = "1.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "backports-weakref" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/0d/f9/fa432ec3d185a63d39c20c49e37e163633aaae4009cc79574aecc064d2d0/backports.tempfile-1.0.tar.gz", hash = "sha256:1c648c452e8770d759bdc5a5e2431209be70d25484e1be24876cf2168722c762", size = 10262, upload-time = "2017-10-13T11:34:09.737Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/b4/5c/077f910632476281428fe254807952eb47ca78e720d059a46178c541e669/backports.tempfile-1.0-py2.py3-none-any.whl", hash = "sha256:05aa50940946f05759696156a8c39be118169a0e0f94a49d0bb106503891ff54", size = 4398, upload-time = "2017-10-13T11:34:18.576Z" },
-]
-
-[[package]]
-name = "backports-weakref"
-version = "1.0.post1"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/12/ab/cf35cf43a4a6215e3255cf2e49c77d5ba1e9c733af2aa3ec1ca9c4d02592/backports.weakref-1.0.post1.tar.gz", hash = "sha256:bc4170a29915f8b22c9e7c4939701859650f2eb84184aee80da329ac0b9825c2", size = 10574, upload-time = "2017-09-17T20:58:21.892Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/88/ec/f598b633c3d5ffe267aaada57d961c94fdfa183c5c3ebda2b6d151943db6/backports.weakref-1.0.post1-py2.py3-none-any.whl", hash = "sha256:81bc9b51c0abc58edc76aefbbc68c62a787918ffe943a37947e162c3f8e19e82", size = 5237, upload-time = "2017-09-17T20:58:26.557Z" },
 ]
 
 [[package]]
@@ -3573,7 +3543,7 @@ requires-dist = [
     { name = "numpy", specifier = ">=2.0.2" },
     { name = "regex", specifier = ">=2026.1.15" },
     { name = "sciencebeam-alignment", git = "https://github.com/eLifePathways/sciencebeam-alignment?branch=uv-build" },
-    { name = "sciencebeam-utils", specifier = ">=0.1.5" },
+    { name = "sciencebeam-utils", git = "https://github.com/eLifePathways/sciencebeam-utils?branch=uv-build" },
 ]
 
 [package.metadata.requires-dev]
@@ -3587,19 +3557,13 @@ dev = [
 
 [[package]]
 name = "sciencebeam-utils"
-version = "0.1.5"
-source = { registry = "https://pypi.org/simple" }
+version = "0.0.0"
+source = { git = "https://github.com/eLifePathways/sciencebeam-utils?branch=uv-build#993a77b7c8400527ca59c0f19c9cbe40c68293be" }
 dependencies = [
-    { name = "backports-csv" },
-    { name = "backports-tempfile" },
     { name = "lxml" },
     { name = "numpy" },
     { name = "six" },
     { name = "tqdm" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/7d/6b/0d029631654ce68315d92250bf763e9910cd8167e25bba9a55c593d53795/sciencebeam_utils-0.1.5.tar.gz", hash = "sha256:89ed4cd771fce007e363a055bb604125aa8a316478106e4995a47000343b91d1", size = 30387, upload-time = "2022-03-22T15:10:57.948Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/7e/0c/5e7d2e935a18b3f590f15dc2b8a601b324604f4043d0bb35a8af7f16665d/sciencebeam_utils-0.1.5-py3-none-any.whl", hash = "sha256:dc0ebfcf8a9a3623899efd3bf685b66114372d1efa141494cc58d7f8df961c68", size = 44929, upload-time = "2022-03-22T15:10:56.718Z" },
 ]
 
 [[package]]
