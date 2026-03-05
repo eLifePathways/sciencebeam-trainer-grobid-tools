@@ -1,6 +1,5 @@
 import logging
 import re
-from distutils.util import strtobool
 from itertools import groupby
 from typing import Dict, List, Optional, Sequence, Tuple, cast
 
@@ -40,6 +39,7 @@ from sciencebeam_trainer_grobid_tools.annotation.matching_utils import (
     normalise_str_or_list,
     normalise_and_remove_junk_str_or_list
 )
+from sciencebeam_trainer_grobid_tools.utils.string import strtobool
 
 
 LOGGER = logging.getLogger(__name__)

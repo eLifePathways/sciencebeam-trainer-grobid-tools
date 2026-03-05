@@ -24,7 +24,7 @@ from sciencebeam_trainer_grobid_tools.core.annotation.target_annotation import (
     flatten_if_nested
 )
 
-from sciencebeam_trainer_grobid_tools.utils.string import is_blank
+from sciencebeam_trainer_grobid_tools.utils.string import is_blank, strtobool
 from sciencebeam_trainer_grobid_tools.utils.xml import iter_text_content_and_exclude
 
 
@@ -34,23 +34,6 @@ LOGGER = logging.getLogger(__name__)
 class XmlMappingSuffix(_XmlMappingSuffix):
     USE_RAW_TEXT = '.use-raw-text'
     IGNORE = '.ignore'
-
-
-# copied from distutils.util.strtobool
-def strtobool(val: str) -> int:
-    """Convert a string representation of truth to true (1) or false (0).
-
-    True values are 'y', 'yes', 't', 'true', 'on', and '1'; false values
-    are 'n', 'no', 'f', 'false', 'off', and '0'.  Raises ValueError if
-    'val' is anything else.
-    """
-    val = val.lower()
-    if val in ('y', 'yes', 't', 'true', 'on', '1'):
-        return 1
-    elif val in ('n', 'no', 'f', 'false', 'off', '0'):
-        return 0
-    else:
-        raise ValueError("invalid truth value %r" % (val,))
 
 
 def contains_raw_text(element: etree.Element) -> bool:
