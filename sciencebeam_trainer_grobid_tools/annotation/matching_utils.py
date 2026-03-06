@@ -61,7 +61,7 @@ def normalise_str_or_list(x):
 
 def normalise_and_remove_junk_str(
         text: str,
-        is_junk_fn: Callable[[str, int], bool] = None) -> str:
+        is_junk_fn: Optional[Callable[[str, int], bool]] = None) -> str:
     if is_junk_fn is None:
         is_junk_fn = DEFAULT_ISJUNK
     return remove_junk(normalise_str(text), is_junk_fn)
@@ -72,7 +72,7 @@ T_Text_Or_Text_List = TypeVar('T_Text_Or_Text_List', bound=Union[str, List[str]]
 
 def normalise_and_remove_junk_str_or_list(
     text_or_list: T_Text_Or_Text_List,
-    is_junk_fn: Callable[[str, int], bool] = None
+    is_junk_fn: Optional[Callable[[str, int], bool]] = None
 ) -> T_Text_Or_Text_List:
     if isinstance(text_or_list, list):
         return cast(T_Text_Or_Text_List, [
@@ -117,7 +117,7 @@ def join_with_index_ranges(
     items: List[T_Item],
     sep: str,
     pad: str = '',
-    whitespace_list: List[str] = None
+    whitespace_list: Optional[List[str]] = None
 ) -> Tuple[str, List[Tuple[int, int]]]:
     item_str_list = [pad + str(item) + pad for item in items]
     if whitespace_list:
@@ -148,7 +148,7 @@ class JoinedText(Generic[T_Item]):
         items: List[T_Item],
         sep: str,
         pad: str = '',
-        whitespace_list: List[str] = None
+        whitespace_list: Optional[List[str]] = None
     ):
         self._items = items
         self._text, self._item_index_ranges = join_with_index_ranges(
@@ -240,7 +240,7 @@ class SequenceWrapper(Generic[T_Token]):
 
 
 class SequenceWrapperWithPosition(SequenceWrapper):
-    def __init__(self, *args, position: int = None, **kwargs):
+    def __init__(self, *args, position: Optional[int] = None, **kwargs):
         super().__init__(*args, **kwargs)
         self.position = position
 
@@ -261,7 +261,7 @@ class PendingSequences:
     def __init__(self, sequences: Sequence[SequenceWrapper]):
         self._sequences = sequences
 
-    def iter_pending_sequences(self, limit: int = None):
+    def iter_pending_sequences(self, limit: Optional[int] = None):
         untagged_pending_sequences = iter_flatten(
             seq.untagged_sub_sequences() for seq in self._sequences
         )
@@ -269,7 +269,7 @@ class PendingSequences:
             untagged_pending_sequences = islice(untagged_pending_sequences, limit)
         return untagged_pending_sequences
 
-    def get_pending_sequences(self, limit: int = None):
+    def get_pending_sequences(self, limit: Optional[int] = None):
         return list(self.iter_pending_sequences(limit=limit))
 
     @staticmethod

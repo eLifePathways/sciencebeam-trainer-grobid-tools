@@ -136,7 +136,11 @@ def with_element_tail(element: etree.Element, tail: str) -> etree.Element:
     return element
 
 
-def get_jats_pub_id_element(text: str, pub_id_type: str, tail: str = None) -> etree.Element:
+def get_jats_pub_id_element(
+    text: str,
+    pub_id_type: str,
+    tail: Optional[str] = None
+) -> etree.Element:
     node = E('pub-id', {'pub-id-type': pub_id_type}, text)
     if tail:
         node.tail = tail
@@ -172,9 +176,9 @@ def get_full_cleaned_url(text: str):
 
 def get_jats_ext_link_element(
         text: str,
-        tail: str = None,
+        tail: Optional[str] = None,
         ext_link_type: str = 'uri',
-        url: str = None) -> etree.Element:
+        url: Optional[str] = None) -> etree.Element:
     if url is None:
         url = get_full_cleaned_url(text)
     node = E(
@@ -377,7 +381,7 @@ def find_ext_link_start_end(text: str) -> Optional[Tuple[int, int]]:
     return 0, len(text)
 
 
-def has_surrounding_quotes(text: str, start: int = 0, end: int = None) -> bool:
+def has_surrounding_quotes(text: str, start: int = 0, end: Optional[int] = None) -> bool:
     if end is None:
         end = len(text)
     return (

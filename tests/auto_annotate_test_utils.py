@@ -72,7 +72,7 @@ def _add_all(
 
 def get_tei_nodes_for_text(
         text: str,
-        element_maker: ElementMaker = None,
+        element_maker: Optional[ElementMaker] = None,
         trailing_line_feed: bool = False) -> List[Union[str, etree.Element]]:
     if element_maker is None:
         element_maker = E
@@ -98,14 +98,14 @@ def get_tei_nodes_for_lines(lines: List[str], *args, **kwargs) -> List[Union[str
 
 
 def get_target_xml_node(
-        title: str = None,
-        author_nodes: List[etree.Element] = None,
-        affiliation_nodes: List[etree.Element] = None,
-        abstract_node: etree.Element = None,
-        article_meta_nodes: List[etree.Element] = None,
-        body_nodes: List[etree.Element] = None,
-        back_nodes: List[etree.Element] = None,
-        reference_nodes: List[etree.Element] = None) -> etree.Element:
+        title: Optional[str] = None,
+        author_nodes: Optional[List[etree.Element]] = None,
+        affiliation_nodes: Optional[List[etree.Element]] = None,
+        abstract_node: Optional[etree.Element] = None,
+        article_meta_nodes: Optional[List[etree.Element]] = None,
+        body_nodes: Optional[List[etree.Element]] = None,
+        back_nodes: Optional[List[etree.Element]] = None,
+        reference_nodes: Optional[List[etree.Element]] = None) -> etree.Element:
     contrib_group = E('contrib-group')
     article_meta_node = E('article-meta', contrib_group)
     front_node = E.front(article_meta_node)

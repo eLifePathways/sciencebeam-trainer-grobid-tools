@@ -115,8 +115,8 @@ def get_prefix_extended_token_tags(
         token_tags: List[str],
         token_texts: List[str],
         prefix_regex_by_tag_map: Dict[str, str],
-        token_whitespaces: List[str] = None,
-        enabled_tags: Set[str] = None) -> List[Optional[str]]:
+        token_whitespaces: Optional[List[str]] = None,
+        enabled_tags: Optional[Set[str]] = None) -> List[Optional[str]]:
     result: List[Optional[str]] = []
     if token_whitespaces is None:
         token_whitespaces = [' '] * len(token_texts)

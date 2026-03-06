@@ -1,4 +1,5 @@
 import logging
+from typing import Optional
 
 from sciencebeam_trainer_grobid_tools.core.annotation.annotator import (
     AbstractAnnotator
@@ -148,7 +149,7 @@ class TextLineNumberAnnotatorConfig:
 class TextLineNumberAnnotator(AbstractAnnotator):
     def __init__(
             self,
-            config: TextLineNumberAnnotatorConfig = None):
+            config: Optional[TextLineNumberAnnotatorConfig] = None):
         if config is None:
             config = TextLineNumberAnnotatorConfig()
         self.config = config

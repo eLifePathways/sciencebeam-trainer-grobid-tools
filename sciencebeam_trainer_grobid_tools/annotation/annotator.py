@@ -48,8 +48,8 @@ def _map_token_tags(
 def _preserve_tag_fn(
         existing_tag: str,
         token,  # pylint: disable=unused-argument
-        include_fields: Set[str] = None,
-        exclude_fields: Set[str] = None):
+        include_fields: Optional[Set[str]] = None,
+        exclude_fields: Optional[Set[str]] = None):
     simple_existing_tag = strip_tag_prefix(existing_tag)
     if exclude_fields and simple_existing_tag in exclude_fields:
         return None
