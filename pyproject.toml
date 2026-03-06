@@ -15,8 +15,13 @@ dependencies = [
     "sciencebeam-utils>=0.1.6",
 ]
 
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+explicit = true
+
 [tool.uv.sources]
-sciencebeam-alignment = { git = "https://github.com/eLifePathways/sciencebeam-alignment", branch = "uv-build" }
+sciencebeam-alignment = { index = "testpypi" }
 
 [dependency-groups]
 dev = [
