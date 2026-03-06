@@ -3501,14 +3501,14 @@ wheels = [
 
 [[package]]
 name = "sciencebeam-alignment"
-version = "2026.3.6.9.16.45.dev30604425"
-source = { registry = "https://test.pypi.org/simple/" }
+version = "0.0.6"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "fuzzywuzzy" },
     { name = "numpy" },
     { name = "six" },
 ]
-sdist = { url = "https://test-files.pythonhosted.org/packages/99/b1/3a9dabdb068215c8bf26dd14b5c301390f6ebafbd440aa9585eacd51f093/sciencebeam_alignment-2026.3.6.9.16.45.dev30604425.tar.gz", hash = "sha256:eaa0d5ed10a0656e4c52897453685110ce75c9c542d09f9b872860d182dc87e6", size = 181702, upload-time = "2026-03-06T09:17:36.578Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8b/1a/7e7da6fd7a90544f4ab30ee099a30f3b2651140ba141c7a1a1fa76f95723/sciencebeam_alignment-0.0.6.tar.gz", hash = "sha256:9437854c14dede991075bfb6598a9d5a9c071ea176ef99bf1351939a9b37c110", size = 181603, upload-time = "2026-03-06T09:59:02.277Z" }
 
 [[package]]
 name = "sciencebeam-trainer-grobid-tools"
@@ -3543,7 +3543,7 @@ requires-dist = [
     { name = "lxml", specifier = ">=6.0.2" },
     { name = "numpy", specifier = ">=2.0.2" },
     { name = "regex", specifier = ">=2026.1.15" },
-    { name = "sciencebeam-alignment", index = "https://test.pypi.org/simple/" },
+    { name = "sciencebeam-alignment", specifier = ">=0.0.6" },
     { name = "sciencebeam-utils", specifier = ">=0.1.6" },
 ]
 

@@ -11,17 +11,9 @@ dependencies = [
     "lxml>=6.0.2",
     "numpy>=2.0.2",
     "regex>=2026.1.15",
-    "sciencebeam-alignment",
+    "sciencebeam-alignment>=0.0.6",
     "sciencebeam-utils>=0.1.6",
 ]
-
-[[tool.uv.index]]
-name = "testpypi"
-url = "https://test.pypi.org/simple/"
-explicit = true
-
-[tool.uv.sources]
-sciencebeam-alignment = { index = "testpypi" }
 
 [dependency-groups]
 dev = [
