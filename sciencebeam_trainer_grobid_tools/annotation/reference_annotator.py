@@ -310,7 +310,7 @@ def get_etal_mapped_tags(
             continue
         result.append(previous_accepted_group_sub_tag)
         result.extend(
-            [to_inside_tag(previous_accepted_group_sub_tag)]
+            [to_inside_tag(previous_accepted_group_sub_tag)]  # type: ignore
             * (len(group) - 1)
         )
     return result
