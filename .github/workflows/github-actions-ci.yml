@@ -66,3 +66,14 @@ jobs:
         with:
           name: python-package-distributions
           path: dist/
+
+  build-docker-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: CI build and test
+        run: make ci-build-and-test
