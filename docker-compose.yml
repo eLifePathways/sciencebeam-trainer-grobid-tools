@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   # we are using the sciencebeam-trainer-grobid image to test the whole processing steps
   # (which switches between that and the tools image depending on the step)

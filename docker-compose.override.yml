@@ -1,18 +1,19 @@
-version: '3'
-
 services:
   grobid-trainer:
     volumes:
       - ~/.config/gcloud:/root/.config/gcloud
+      - ./data:/data
 
   tools:
     volumes:
       - ~/.config/gcloud:/root/.config/gcloud
+      - ./data:/data
 
   tools-dev:
     volumes:
       - ./sciencebeam_trainer_grobid_tools:/opt/sciencebeam-grobid-trainer-tools/sciencebeam_trainer_grobid_tools
       - ./tests:/opt/sciencebeam-grobid-trainer-tools/tests
+      - ./data:/data
     environment:
         # avoid issues with .pyc/pyo files when mounting source directory
         PYTHONOPTIMIZE: ""
