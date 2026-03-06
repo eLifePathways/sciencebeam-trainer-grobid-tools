@@ -3501,14 +3501,14 @@ wheels = [
 
 [[package]]
 name = "sciencebeam-alignment"
-version = "0.0.6"
+version = "0.0.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "fuzzywuzzy" },
     { name = "numpy" },
     { name = "six" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8b/1a/7e7da6fd7a90544f4ab30ee099a30f3b2651140ba141c7a1a1fa76f95723/sciencebeam_alignment-0.0.6.tar.gz", hash = "sha256:9437854c14dede991075bfb6598a9d5a9c071ea176ef99bf1351939a9b37c110", size = 181603, upload-time = "2026-03-06T09:59:02.277Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/bf/6d/1271fedb4dbfbe4e546caabde27c1547144ca092f2468411eebeb4cbb7b5/sciencebeam_alignment-0.0.7.tar.gz", hash = "sha256:9e5c1ce2c81f55ab89cfb20f7d121511e1a0279cd1778fcc5bf04a5a7fe50f05", size = 181710, upload-time = "2026-03-06T12:14:25.755Z" }
 
 [[package]]
 name = "sciencebeam-trainer-grobid-tools"
@@ -3543,8 +3543,8 @@ requires-dist = [
     { name = "lxml", specifier = ">=6.0.2" },
     { name = "numpy", specifier = ">=2.0.2" },
     { name = "regex", specifier = ">=2026.1.15" },
-    { name = "sciencebeam-alignment", specifier = ">=0.0.6" },
-    { name = "sciencebeam-utils", specifier = ">=0.1.6" },
+    { name = "sciencebeam-alignment", specifier = ">=0.0.7" },
+    { name = "sciencebeam-utils", specifier = ">=0.1.7" },
 ]
 
 [package.metadata.requires-dev]
@@ -3558,7 +3558,7 @@ dev = [
 
 [[package]]
 name = "sciencebeam-utils"
-version = "0.1.6"
+version = "0.1.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "lxml" },
@@ -3566,9 +3566,9 @@ dependencies = [
     { name = "six" },
     { name = "tqdm" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ca/d6/c7bb71236c2d3d43580bc65fe36ce49c6a08d4db6725c3a05dcbe5f11f25/sciencebeam_utils-0.1.6.tar.gz", hash = "sha256:1792f3ba83089e378278f40dcb07e377e4bca26d2fb0a5ea9b499c630da76266", size = 22115, upload-time = "2026-03-05T19:25:52.707Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/72/2f/853dafb38ed75ad4facb1b3fd1ca57986a244d7672c3db93ee1fdbbfa217/sciencebeam_utils-0.1.7.tar.gz", hash = "sha256:f988f8a44cab9ba532a45e1e0d871e238b9dd5c8fe2c1be64ec915848bb28a09", size = 22213, upload-time = "2026-03-06T12:13:08.18Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7c/5f/0fcd83a0d5156fbb190140d1405ebc10ae71cc16b5fee2319d9b3d8cc04e/sciencebeam_utils-0.1.6-py3-none-any.whl", hash = "sha256:0cc1f85c814b5ee6cbfab0340c72bd88dc65f3dc8bcc7e3c77539da198728b95", size = 29183, upload-time = "2026-03-05T19:25:51.83Z" },
+    { url = "https://files.pythonhosted.org/packages/5d/b7/78fdde978440670bfd730ceede555ff877de151c60ad044ea052f8e27531/sciencebeam_utils-0.1.7-py3-none-any.whl", hash = "sha256:24d57b20acdff22b5f798a440ea40a57113b855ff010a3bb606ff75e6684c4f0", size = 29326, upload-time = "2026-03-06T12:13:07.316Z" },
 ]
 
 [[package]]
