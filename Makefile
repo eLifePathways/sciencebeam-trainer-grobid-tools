@@ -105,7 +105,7 @@ build:
 
 
 build-dev:
-	$(DOCKER_COMPOSE) build tools-dev-base-image tools-dev
+	$(DOCKER_COMPOSE) build tools-dev
 
 
 build-docker:
@@ -249,15 +249,15 @@ tools-delete-pyc: build-dev
 
 
 tools-pylint:
-	$(RUN_TOOLS_DEV) pylint sciencebeam_trainer_grobid_tools tests setup.py
+	$(RUN_TOOLS_DEV) pylint sciencebeam_trainer_grobid_tools tests
 
 
 tools-flake8:
-	$(RUN_TOOLS_DEV) flake8 sciencebeam_trainer_grobid_tools tests setup.py
+	$(RUN_TOOLS_DEV) python -m flake8 sciencebeam_trainer_grobid_tools tests
 
 
 tools-mypy:
-	$(RUN_TOOLS_DEV) mypy --ignore-missing-imports sciencebeam_trainer_grobid_tools tests setup.py
+	$(RUN_TOOLS_DEV) python -m mypy --ignore-missing-imports sciencebeam_trainer_grobid_tools tests
 
 
 tools-pytest:
