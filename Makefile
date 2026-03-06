@@ -1,9 +1,10 @@
-DOCKER_COMPOSE_DEV = docker-compose
-DOCKER_COMPOSE_CI = docker-compose -f docker-compose.yml
+DOCKER_COMPOSE_DEV = docker compose
+DOCKER_COMPOSE_CI = docker compose -f docker-compose.yml
 DOCKER_COMPOSE = $(DOCKER_COMPOSE_DEV)
 
-VENV = venv
-PIP = $(VENV)/bin/pip
+VENV = .venv
+UV = VIRTUAL_ENV=$(VENV) uv
+UV_PIP = $(UV) pip
 PYTHON = $(VENV)/bin/python
 
 RUN_GROBID_TRAINER = $(DOCKER_COMPOSE) run --rm grobid-trainer
@@ -45,29 +46,26 @@ venv-clean:
 
 
 venv-create:
-	python3 -m venv $(VENV)
+	$(UV) venv $(VENV)
 
 
 dev-install:
-	$(PIP) install -r requirements.build.txt
-	$(PIP) install -r requirements.txt
-	$(PIP) install -r requirements.dev.txt
-	$(PIP) install -e . --no-deps
+	$(UV) sync
 
 
 dev-venv: venv-create dev-install
 
 
 dev-flake8:
-	$(PYTHON) -m flake8 sciencebeam_trainer_grobid_tools tests setup.py
+	$(PYTHON) -m flake8 sciencebeam_trainer_grobid_tools
 
 
 dev-pylint:
-	$(PYTHON) -m pylint sciencebeam_trainer_grobid_tools tests setup.py
+	$(PYTHON) -m pylint sciencebeam_trainer_grobid_tools
 
 
 dev-mypy:
-	$(PYTHON) -m mypy --ignore-missing-imports sciencebeam_trainer_grobid_tools tests setup.py $(ARGS)
+	$(PYTHON) -m mypy --ignore-missing-imports sciencebeam_trainer_grobid_tools tests $(ARGS)
 
 
 dev-lint: dev-flake8 dev-pylint dev-mypy
@@ -107,7 +105,7 @@ build:
 
 
 build-dev:
-	$(DOCKER_COMPOSE) build tools-dev-base-image tools-dev
+	$(DOCKER_COMPOSE) build tools-dev
 
 
 build-docker:
@@ -251,15 +249,15 @@ tools-delete-pyc: build-dev
 
 
 tools-pylint:
-	$(RUN_TOOLS_DEV) pylint sciencebeam_trainer_grobid_tools tests setup.py
+	$(RUN_TOOLS_DEV) pylint sciencebeam_trainer_grobid_tools tests
 
 
 tools-flake8:
-	$(RUN_TOOLS_DEV) flake8 sciencebeam_trainer_grobid_tools tests setup.py
+	$(RUN_TOOLS_DEV) python -m flake8 sciencebeam_trainer_grobid_tools tests
 
 
 tools-mypy:
-	$(RUN_TOOLS_DEV) mypy --ignore-missing-imports sciencebeam_trainer_grobid_tools tests setup.py
+	$(RUN_TOOLS_DEV) python -m mypy --ignore-missing-imports sciencebeam_trainer_grobid_tools tests
 
 
 tools-pytest:

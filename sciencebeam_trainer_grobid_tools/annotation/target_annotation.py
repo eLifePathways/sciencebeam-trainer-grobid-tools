@@ -1,6 +1,5 @@
 import logging
 import re
-from distutils.util import strtobool
 from itertools import chain
 from typing import List
 
@@ -25,7 +24,7 @@ from sciencebeam_trainer_grobid_tools.core.annotation.target_annotation import (
     flatten_if_nested
 )
 
-from sciencebeam_trainer_grobid_tools.utils.string import is_blank
+from sciencebeam_trainer_grobid_tools.utils.string import is_blank, strtobool
 from sciencebeam_trainer_grobid_tools.utils.xml import iter_text_content_and_exclude
 
 

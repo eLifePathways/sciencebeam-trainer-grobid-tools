@@ -20,25 +20,13 @@ services:
     volumes:
       - data:/data
 
-  # same as tools but with dev dependencies
-  tools-dev-base-image:
-    build:
-      context: .
-      dockerfile: Dockerfile.tools
-      args:
-        install_dev: y
-    image: elifesciences/sciencebeam-trainer-grobid-tools-dev-base:${IMAGE_TAG}
-
-  # with added dev tools and tests
+  # with added dev dependencies, tools and tests
   tools-dev:
     build:
       context: .
-      dockerfile: Dockerfile.tools-dev
-      args:
-        base_image: elifesciences/sciencebeam-trainer-grobid-tools-dev-base:${IMAGE_TAG}
+      dockerfile: Dockerfile.tools
+      target: tools-dev
     image: elifesciences/sciencebeam-trainer-grobid-tools-dev:${IMAGE_TAG}
-    depends_on:
-      - tools-dev-base-image
     volumes:
       - data:/data
 
@@ -48,6 +36,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.tools
+      target: tools
       args:
         install_docker: y
     image: elifesciences/sciencebeam-trainer-grobid-tools-docker:${IMAGE_TAG}

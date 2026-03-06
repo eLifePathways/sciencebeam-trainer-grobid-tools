@@ -74,7 +74,7 @@ class SegmentationConfig(NamedTuple):
 
 
 def parse_segmentation_config(filename: str) -> SegmentationConfig:
-    with open(filename, 'r') as f:
+    with open(filename, 'r', encoding='utf-8') as f:
         config = ConfigParser()
         config.read_file(f)  # pylint: disable=no-member
         front_max_start_line_index = config.getint(

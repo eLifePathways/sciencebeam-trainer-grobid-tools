@@ -1,4 +1,4 @@
-FROM python:3.7-buster
+FROM ghcr.io/astral-sh/uv:python3.10-bookworm AS base
 
 # install gcloud to make it easier to access cloud storage
 ARG install_gcloud=y
@@ -19,21 +19,34 @@ ENV PATH /root/.local/bin:$PATH
 
 WORKDIR /opt/sciencebeam-grobid-trainer-tools
 
-COPY requirements.txt ./
-RUN pip install --user -r requirements.txt
+ENV VENV=/opt/venv
+ENV VIRTUAL_ENV=${VENV} PYTHONUSERBASE=${VENV} PATH=${VENV}/bin:$PATH
 
-ARG install_dev
-COPY requirements.dev.txt ./
-RUN if [ "${install_dev}" = "y" ]; then pip install --user -r requirements.dev.txt; fi
+RUN uv venv "${VENV}"
+
+COPY pyproject.toml uv.lock ./
+RUN uv sync --active --frozen
 
 COPY sciencebeam_trainer_grobid_tools ./sciencebeam_trainer_grobid_tools
 COPY config ./config
-COPY setup.py ./
-RUN pip install -e .
+RUN uv pip install -e .
 
 COPY docker ./docker
 COPY scripts /opt/scripts
 ENV PATH /opt/scripts:$PATH
+
+# tools-dev
+FROM base AS tools-dev
+
+RUN uv sync --active --frozen --dev
+
+COPY tests ./tests
+
+COPY .flake8 .pylintrc ./
+
+
+# tools
+FROM base AS tools
 
 ARG revision
 LABEL org.opencontainers.image.revision="${revision}"
