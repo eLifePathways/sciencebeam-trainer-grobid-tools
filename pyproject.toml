@@ -26,3 +26,8 @@ dev = [
 
 [tool.mypy]
 implicit_optional = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sciencebeam_trainer_grobid_tools*"]
+exclude = ["docker*"]
