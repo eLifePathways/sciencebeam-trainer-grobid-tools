@@ -1,6 +1,8 @@
 /venv
 /.temp
 *.egg-info
+/data
+
 
 *.lst
 .config
