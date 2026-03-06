@@ -91,7 +91,7 @@ def parse_xml_or_get_error_line(
             with open(temp_file, mode='rb') as temp_fp:
                 # mypy: https://github.bajins.com/python/mypy/issues/10271
                 with BufferedReader(temp_fp) as reader:  # type: ignore
-                    skip_spaces(reader)
+                    skip_spaces(reader)  # type: ignore
                     return etree.parse(reader, **kwargs)
         except etree.XMLSyntaxError as exception:
             error_lineno = exception.lineno
