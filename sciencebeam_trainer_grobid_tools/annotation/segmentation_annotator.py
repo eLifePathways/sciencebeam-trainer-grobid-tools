@@ -301,7 +301,7 @@ def find_missing_page_numbers(
 def is_valid_page_header_candidate(
     text: str,
     count: int,
-    min_count: int = None
+    min_count: Optional[int] = None
 ) -> bool:
     if min_count is None:
         min_count = 2

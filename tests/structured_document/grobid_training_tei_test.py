@@ -17,6 +17,7 @@ from sciencebeam_trainer_grobid_tools.structured_document.grobid_training_tei im
     TAG_ATTRIB_NAME,
     DEFAULT_TAG_KEY
 )
+from typing import Optional
 
 
 LOGGER = logging.getLogger(__name__)
@@ -30,7 +31,7 @@ TAG_1 = 'tag1'
 TAG_2 = 'tag2'
 
 
-def _tei(text_items: list = None, front_items: list = None):
+def _tei(text_items: Optional[list] = None, front_items: Optional[list] = None):
     if text_items is None:
         text_items = [E.front(*front_items)]
     return E.tei(E.text(*text_items))

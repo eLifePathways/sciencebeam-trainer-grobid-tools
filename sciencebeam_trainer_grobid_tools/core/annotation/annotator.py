@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import List
+from typing import Optional, List
 
 
 class AbstractAnnotator(ABC):
@@ -12,7 +12,7 @@ DEFAULT_ANNOTATORS: List[AbstractAnnotator] = []
 
 
 class Annotator:
-    def __init__(self, annotators: List[AbstractAnnotator] = None):
+    def __init__(self, annotators: Optional[List[AbstractAnnotator]] = None):
         if annotators is None:
             annotators = DEFAULT_ANNOTATORS
         self.annotators = annotators

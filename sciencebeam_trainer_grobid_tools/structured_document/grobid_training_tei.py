@@ -282,7 +282,7 @@ def _iter_extract_lines_from_element(
         line_buffer: LineBuffer,
         current_path: List[str],
         root_paths: Set[str],
-        parent_tagged_path: List[str] = None,
+        parent_tagged_path: Optional[List[str]] = None,
         begin_tag: bool = True) -> Iterable[TeiLine]:
     previous_tag = line_buffer.next_tag
     current_tag = '/'.join(current_path) if current_path else None
@@ -443,7 +443,7 @@ class XmlTreeWriter:
 def _lines_to_tei(
         parent: etree.Element,
         lines: List[TeiLine],
-        tag_to_tei_path_mapping: Dict[str, str] = None):
+        tag_to_tei_path_mapping: Optional[Dict[str, str]] = None):
     if tag_to_tei_path_mapping is None:
         tag_to_tei_path_mapping = {}
     writer = XmlTreeWriter(parent)
@@ -536,7 +536,7 @@ def _updated_tei_with_lines(
         lines: list,
         tag_to_tei_path_mapping: Dict[str, str],
         container_node_path: str = 'text/front',
-        namespaces: Dict[str, str] = None):
+        namespaces: Optional[Dict[str, str]] = None):
     updated_root = copy.deepcopy(original_root)
     container_node = updated_root.find(container_node_path, namespaces=namespaces)
     get_logger().debug('container_node: %s', container_node)
@@ -553,10 +553,10 @@ class GrobidTrainingTeiStructuredDocument(AbstractStructuredDocument):
     def __init__(
             self,
             root: etree.Element,
-            tag_to_tei_path_mapping: Dict[str, str] = None,
+            tag_to_tei_path_mapping: Optional[Dict[str, str]] = None,
             preserve_tags: bool = True,
             container_node_path: str = DEFAULT_CONTAINER_NODE_PATH,
-            namespaces: Dict[str, str] = None):
+            namespaces: Optional[Dict[str, str]] = None):
         self._root = root
         self._container_node_path = container_node_path
         self._tag_to_tei_path_mapping = (
@@ -644,7 +644,7 @@ class GrobidTrainingTeiStructuredDocument(AbstractStructuredDocument):
 
     def set_tag_only(
             self, parent: TeiText, tag: Optional[str],
-            scope: str = None,
+            scope: Optional[str] = None,
             level: Optional[T_Tag_Level] = None):
         set_or_remove_attrib(parent.attrib, _get_tag_attrib_name(scope, level), tag)
 
@@ -677,7 +677,7 @@ class GrobidTrainingTeiStructuredDocument(AbstractStructuredDocument):
             if level is None:
                 self._clear_same_preserved_tag_on_same_line(parent, level=SUB_LEVEL)
 
-    def _clear_same_preserved_tag_on_same_line(self, token, level: T_Tag_Level = None):
+    def _clear_same_preserved_tag_on_same_line(self, token, level: Optional[T_Tag_Level] = None):
         preserved_tag_attrib_name = get_scoped_attrib_name(PRESERVED_TAG_ATTRIB_NAME, level=level)
         preserved_tag = strip_tag_prefix(token.attrib.get(preserved_tag_attrib_name))
         if not preserved_tag:
@@ -688,7 +688,7 @@ class GrobidTrainingTeiStructuredDocument(AbstractStructuredDocument):
             if strip_tag_prefix(line_token.attrib.get(preserved_tag_attrib_name)) == preserved_tag:
                 self._set_preserved_tag(line_token, None, level=level)
 
-    def _set_preserved_tag(self, parent, tag, level: T_Tag_Level = None):
+    def _set_preserved_tag(self, parent, tag, level: Optional[T_Tag_Level] = None):
         set_or_remove_attrib(
             parent.attrib,
             get_scoped_attrib_name(PRESERVED_TAG_ATTRIB_NAME, level=level),

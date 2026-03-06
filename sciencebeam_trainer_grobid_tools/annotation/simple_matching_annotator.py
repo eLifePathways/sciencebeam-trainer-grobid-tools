@@ -67,12 +67,12 @@ T_StructuredDocument = AbstractStructuredDocument
 class SimpleTagConfig:
     def __init__(
             self,
-            match_prefix_regex: str = None,
+            match_prefix_regex: Optional[str] = None,
             alternative_spellings: Optional[Dict[str, List[str]]] = None,
             merge_enabled: bool = DEFAULT_MERGE_ENABLED,
             extend_to_line_enabled: bool = DEFAULT_EXTEND_TO_LINE_ENABLED,
             max_chunks: int = DEFAULT_MAX_CHUNKS,
-            block_name: str = None):
+            block_name: Optional[str] = None):
         self.match_prefix_regex = match_prefix_regex
         self.alternative_spellings = alternative_spellings
         self.merge_enabled = merge_enabled
@@ -108,7 +108,7 @@ class SimpleSimpleMatchingConfig:
             extend_to_line_enabled: bool = True,
             use_sub_annotations: bool = False,
             preserve_sub_annotations: bool = False,
-            tag_config_map: Dict[str, SimpleTagConfig] = None):
+            tag_config_map: Optional[Dict[str, SimpleTagConfig]] = None):
         self.threshold = threshold
         self.lookahead_sequence_count = lookahead_sequence_count
         self.min_token_length = min_token_length
@@ -285,8 +285,8 @@ def get_merged_begin_inside_tags_of_same_tag_value(
 
 def get_extended_line_token_tags(
         line_token_tags: Sequence[Optional[str]],
-        extend_to_line_enabled_map: Dict[str, bool] = None,
-        merge_enabled_map: Dict[str, bool] = None,
+        extend_to_line_enabled_map: Optional[Dict[str, bool]] = None,
+        merge_enabled_map: Optional[Dict[str, bool]] = None,
         default_extend_to_line_enabled: bool = DEFAULT_EXTEND_TO_LINE_ENABLED,
         default_merge_enabled: bool = DEFAULT_MERGE_ENABLED) -> List[Optional[str]]:
     if extend_to_line_enabled_map is None:
@@ -365,7 +365,7 @@ class SimpleMatchingAnnotator(AbstractAnnotator):
     def __init__(
             self,
             target_annotations: List[TargetAnnotation],
-            config: SimpleSimpleMatchingConfig = None,
+            config: Optional[SimpleSimpleMatchingConfig] = None,
             **kwargs):
         self.target_annotations = target_annotations
         if config is None:

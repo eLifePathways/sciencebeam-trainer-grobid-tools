@@ -1,5 +1,5 @@
 import logging
-from typing import List, Tuple
+from typing import Optional, List, Tuple
 
 from lxml.builder import E
 
@@ -32,7 +32,7 @@ TOKEN_3 = 'token3'
 OTHER_TAG = 'other'
 
 
-def _tei(items: list = None):
+def _tei(items: Optional[list] = None):
     return E.tei(E.text(
         *(items or [])
     ))

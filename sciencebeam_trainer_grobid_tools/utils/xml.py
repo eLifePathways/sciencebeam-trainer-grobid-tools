@@ -6,7 +6,7 @@ from html.parser import HTMLParser
 from io import BufferedReader, StringIO
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from typing import Iterable, Iterator, List, Tuple, Union
+from typing import Optional, Iterable, Iterator, List, Tuple, Union
 
 from lxml import etree
 
@@ -25,7 +25,7 @@ LOGGER = logging.getLogger(__name__)
 
 def iter_text_content_and_exclude(
         node: etree.Element,
-        exclude: List[etree.Element] = None) -> Iterable[str]:
+        exclude: Optional[List[etree.Element]] = None) -> Iterable[str]:
     if not exclude:
         yield from node.itertext()
         return
@@ -83,7 +83,7 @@ def skip_spaces(reader: BufferedReader):
 
 def parse_xml_or_get_error_line(
         source,
-        filename: str = None,
+        filename: Optional[str] = None,
         fix_xml: bool = False,
         **kwargs):
     with auto_download_and_fix_input_file(source, fix_xml=fix_xml) as temp_file:

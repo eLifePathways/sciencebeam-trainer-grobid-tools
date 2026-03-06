@@ -277,7 +277,7 @@ def add_document_checks_arguments(parser: argparse.ArgumentParser):
 
 def add_fields_argument(
         parser: argparse.ArgumentParser,
-        default_fields: Collection[str] = None):
+        default_fields: Optional[Collection[str]] = None):
     parser.add_argument(
         '--fields',
         type=get_plus_minus_comma_separated_str_to_set_fn(
@@ -414,7 +414,7 @@ def get_xml_mapping_with_overrides(
 def get_xml_mapping_and_fields(
     xml_mapping_path: str,
     fields: Optional[Set[str]],
-    sub_fields: Set[str] = None,
+    sub_fields: Optional[Set[str]] = None,
     xml_mapping_overrides: Optional[Dict[str, str]] = None
 ) -> Tuple[Dict[str, Dict[str, str]], Set[str]]:
     return get_filtered_xml_mapping_and_fields(
@@ -442,10 +442,10 @@ class AnnotatorConfig:
             matcher_name: str,
             score_threshold: float,
             lookahead_lines: int,
-            debug_match: str = None,
+            debug_match: Optional[str] = None,
             use_line_number_annotator: bool = False,
             use_sub_annotations: bool = False,
-            line_number_annotator_config: TextLineNumberAnnotatorConfig = None):
+            line_number_annotator_config: Optional[TextLineNumberAnnotatorConfig] = None):
         self.matcher_name = matcher_name
         self.score_threshold = score_threshold
         self.lookahead_lines = lookahead_lines
@@ -561,9 +561,9 @@ class AbstractAnnotatePipelineFactory(ABC):
             tag_to_tei_path_mapping: Dict[str, str],
             output_fields: Optional[Set[str]] = None,
             preserve_sub_tags: bool = False,
-            no_preserve_sub_fields: Set[str] = None,
-            require_matching_fields: Set[str] = None,
-            required_fields: Set[str] = None,
+            no_preserve_sub_fields: Optional[Set[str]] = None,
+            require_matching_fields: Optional[Set[str]] = None,
+            required_fields: Optional[Set[str]] = None,
             namespaces: Optional[Dict[str, str]] = None):
         self.tei_filename_pattern = tei_filename_pattern
         self.container_node_path = container_node_path

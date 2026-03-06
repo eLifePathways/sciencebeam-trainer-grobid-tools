@@ -1,6 +1,6 @@
 import logging
 from pathlib import Path
-from typing import List, Tuple
+from typing import Optional, List, Tuple
 
 from lxml.builder import E
 
@@ -53,7 +53,7 @@ LONG_PAGE_HEADER_TEXT_1 = 'This is a very long page header'
 OTHER_TAG = 'other'
 
 
-def _tei(items: list = None):
+def _tei(items: Optional[list] = None):
     return E.tei(E.text(
         *(items or [])
     ))
