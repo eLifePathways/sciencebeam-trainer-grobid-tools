@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 
 import logging
+from typing import Optional
 
 from lxml import etree
 from lxml.builder import E
@@ -17,7 +18,6 @@ from sciencebeam_trainer_grobid_tools.structured_document.grobid_training_tei im
     TAG_ATTRIB_NAME,
     DEFAULT_TAG_KEY
 )
-from typing import Optional
 
 
 LOGGER = logging.getLogger(__name__)
