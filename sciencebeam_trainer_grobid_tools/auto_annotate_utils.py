@@ -654,6 +654,8 @@ class AbstractAnnotatePipelineFactory(ABC):
             output_xml_path = self.get_tei_xml_output_file_for_source_file(source_url)
             final_source_url = self.get_final_source_url(source_url)
             annotator = self.get_annotator(final_source_url)
+            target_annotations = get_target_annotations_from_annotator(annotator)
+            assert target_annotations is not None, 'target_annotations required from annotator'
             annotate_structured_document(
                 final_source_url,
                 output_xml_path,
@@ -667,7 +669,7 @@ class AbstractAnnotatePipelineFactory(ABC):
                 no_preserve_sub_fields=self.no_preserve_sub_fields,
                 is_structured_document_passing_checks=partial(
                     self.is_structured_document_passing_checks,
-                    target_annotations=get_target_annotations_from_annotator(annotator)
+                    target_annotations=target_annotations
                 ),
                 failed_target_structured_document_path=(
                     self.get_tei_xml_failed_output_file_for_source_file(source_url)
